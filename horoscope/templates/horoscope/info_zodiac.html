@@ -2,10 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Гороскоп</title>
+    <title>Гороскоп для {{ sign_zodiac }}</title>
 </head>
 <body>
     <h1>Приложение гороскоп</h1>
-    <h2>Знак задиака Водолей</h2>
+    <h2>{{ description_zodiac }}</h2>
+    <p>Число {{ my_integer }}</p>
+    <p>Число дробное {{ my_float }}</p>
+    <p>Списки {{ my_list }}</p>
+    <p>Кортеж {{ my_tuple }}</p>
+    <p>Словари {{ my_dictionary }}, ключ - {{ my_dictionary.name }}</p>
+    <p>Экземпляр Класса {{ my_class }}
+{#        {{ my_class.age }}#}
+    </p>
 </body>
 </html>

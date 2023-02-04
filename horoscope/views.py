@@ -1,5 +1,7 @@
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
+from django.template.loader import render_to_string
+
 
 zodiac_dictionary = {
     'leo': 'Знак задиака лев',
@@ -47,12 +49,17 @@ def index(request):
     return HttpResponse(response)
 
 
+# def get_info_about_sign_zodiac(request, sign_zodiac: str):
+#     description = zodiac_dictionary.get(sign_zodiac, None)
+#     if description:
+#         return HttpResponse(f'<h2>{description}</h2>')
+#     else:
+#         return HttpResponseNotFound(f"not - {sign_zodiac}")
+
+
 def get_info_about_sign_zodiac(request, sign_zodiac: str):
-    description = zodiac_dictionary.get(sign_zodiac, None)
-    if description:
-        return HttpResponse(f'<h2>{description}</h2>')
-    else:
-        return HttpResponseNotFound(f"not - {sign_zodiac}")
+    response = render_to_string('horoscope/info_zodiac.html')
+    return HttpResponse(response)
 
 
 def get_info_about_sign_zodiac_by_number(request, sign_zodiac: int):

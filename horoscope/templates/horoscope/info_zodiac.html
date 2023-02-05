@@ -2,18 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Гороскоп для {{ sign_zodiac }}</title>
+    <title>Гороскоп для {{ sign_zodiac|capfirst }}</title>
 </head>
 <body>
     <h1>Приложение гороскоп</h1>
-    <h2>{{ description_zodiac }}</h2>
-    <p>Число {{ my_integer }}</p>
+    <h2>{{ description_zodiac|title }}</h2>
+    <h2>{{ description_zodiac|safe }}</h2>
+    <p>Число {{ my_integer|add:'100' }}</p>
     <p>Число дробное {{ my_float }}</p>
     <p>Списки {{ my_list }}</p>
+    <p>Списки фильтр first {{ my_list|first }}</p>
+    <p>Списки фильтр last{{ my_list|last }}</p>
     <p>Кортеж {{ my_tuple }}</p>
     <p>Словари {{ my_dictionary }}, ключ - {{ my_dictionary.name }}</p>
     <p>Экземпляр Класса {{ my_class }}
 {#        {{ my_class.age }}#}
     </p>
+    <p>default фильтр если пустой покажет ---->{{ value|default:"QWERTY" }}</p>
+    <p>default фильтр если не пустой покажет ---->{{ value1|default:"QWERTY" }}</p>
 </body>
 </html>

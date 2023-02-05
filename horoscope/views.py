@@ -8,7 +8,7 @@ zodiac_dictionary = {
     'leo': 'Знак задиака лев',
     'aries': 'Знак задиака aries',
     'scorpio': 'Знак задиака Скорпион',
-    'vodoley': 'Знак задиака Водолей',
+    'vodoley': 'Знак задиака <i>Водолей</i>',
     'sagittarius': 'Знак задиака sagittarius',
     'taurus': 'Знак задиака taurus',
     'virgo': 'Знак задиака virgo',
@@ -63,13 +63,15 @@ def get_info_about_sign_zodiac(request, sign_zodiac: str):
     description = zodiac_dictionary.get(sign_zodiac)
     data = {
         'description_zodiac': description,
-        'sign_zodiac': sign_zodiac.title(),
+        'sign_zodiac': sign_zodiac,
         'my_integer': 222,
         'my_float': 222.33,
         'my_list': [1, 2, 3],
         'my_tuple': (1, 2, 3, 4, 5),
         'my_dictionary': {'name': 'Alexander', 'age': 100},
         'my_class': Person('Ivan', 24),
+        'value': [],
+        'value1': [1,2,3,4,5,6,7,8,9,10],
 
     }
     return render(request, 'horoscope/info_zodiac.html', context=data)

@@ -30,24 +30,12 @@ types = {
 
 def index(request):
     zodiacs = list(zodiac_dictionary)
-    """
-    <ol>
-        <li>leo</li>
-        <li>scorpio</li>
-        <li>vodoley</li>
-        ...
-    </ol>
-    """
-    li_elements = ''
-    for sign in zodiacs:
-        redirect_path = reverse("horoscope-name", args=[sign])
-        li_elements += f"<li><a href='{redirect_path}'>{sign.title()}</a></li>"
-    response = f"""
-    <ul>
-        {li_elements}
-    </ul>
-    """
-    return HttpResponse(response)
+    # f"<li><a href='{redirect_path}'>{sign.title()}</a></li>"
+    context = {
+        'zodiacs': zodiacs,
+        'zodiac_dictionary': zodiac_dictionary,
+    }
+    return render(request, 'horoscope/index.html', context=context)
 
 
 @dataclass
@@ -71,7 +59,7 @@ def get_info_about_sign_zodiac(request, sign_zodiac: str):
         'my_dictionary': {'name': 'Alexander', 'age': 100},
         'my_class': Person('Ivan', 24),
         'value': [],
-        'value1': [1,2,3,4,5,6,7,8,9,10],
+        'value1': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
 
     }
     return render(request, 'horoscope/info_zodiac.html', context=data)

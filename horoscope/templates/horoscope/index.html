@@ -17,6 +17,8 @@
         <li>{{ forloop.counter }} {{ item|title}}</li>
     {% endfor %}
     </ul>
+
+
     {% for key, value in zodiac_dictionary.items %}
         <p>{{ key }}:{{ value }}</p>
     {% empty %}

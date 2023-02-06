@@ -19,7 +19,8 @@ import horoscope
 from horoscope import views
 
 urlpatterns = [
-    path('zodiacs', views.index),
+    # path('zodiacs', views.index),
+    path('', views.index, name='horoscope-index'),
     path('admin/', admin.site.urls),
     path('horoscope/', include('horoscope.urls')),
     # path('<sign_zodiac>', views.get_info_about_sign_zodiac),

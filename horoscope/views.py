@@ -38,33 +38,13 @@ def index(request):
     return render(request, 'horoscope/index.html', context=context)
 
 
-@dataclass
-class Person:
-    name: str
-    age: int
-
-    def __str__(self):
-        return f'This is {self.name} age {self.age} old'
-
-
 def get_info_about_sign_zodiac(request, sign_zodiac: str):
     description = zodiac_dictionary.get(sign_zodiac)
     data = {
         'description_zodiac': description,
         'sign_zodiac': sign_zodiac,
-        'my_integer': 222,
-        'my_float': 222.33,
-        'my_list': [1, 2, 3],
-        'my_tuple': (1, 2, 3, 4, 5),
-        'my_dictionary': {'name': 'Alexander', 'age': 100},
-        'my_class': Person('Ivan', 24),
-        'value': [],
-        'value1': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-
     }
     return render(request, 'horoscope/info_zodiac.html', context=data)
-    # response = render_to_string('horoscope/info_zodiac.html')
-    # return HttpResponse(response)
 
 
 def get_info_about_sign_zodiac_by_number(request, sign_zodiac: int):

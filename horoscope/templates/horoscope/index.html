@@ -7,25 +7,8 @@
 <body>
     <ul>
     {% for item in zodiacs %}
-        {% if forloop.first %}
-            <li><b>{{ forloop.counter0 }}{{ item.title }}</b></li>
-        {% elif forloop.last %}
-            <li style="color: red">{{ forloop.counter0 }}{{ item.title }}</li>
-        {% else %}
-            <li>{{ forloop.counter0 }} {{ item.title }}</li>
-        {% endif %} 
-        <li>{{ forloop.counter }} {{ item|title}}</li>
+        <li><a href="{% url 'horoscope-name' sign_zodiac=item %}">{{ item|title }}</a></li>
     {% endfor %}
     </ul>
-<<<<<<< HEAD
-
-
-=======
->>>>>>> origin/master
-    {% for key, value in zodiac_dictionary.items %}
-        <p>{{ key }}:{{ value }}</p>
-    {% empty %}
-        <p>Sorry, no athletes in this list. </p>
-    {% endfor %}
 </body>
 </html>

@@ -1,40 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Гороскоп для {{ sign_zodiac|capfirst }}</title>
-</head>
-<body>
-    <h1>Приложение гороскоп</h1>
+{% extends 'base.html' %}
+
+{% block title %}
+    Гороскоп для {{ sign_zodiac|upper }}
+{% endblock %}
+
+{% block content %}
+    <nav>
+        <a href="/zodiacs">Главная</a> |
+        <a href="www.onlineapteka.kg">Источник</a>
+    </nav>
+    <h2>Content from info_zodiac.html</h2>
     {% if description_zodiac is None %}
         <h2>Неправильный знак задиака - {{ sign_zodiac|upper }}</h2>
     {% else %}
-        <h2>{{ description_zodiac|title|safe }}</h2>
+        <h2>{{ description_zodiac|capfirst|safe }}</h2>
     {% endif %}
-
-    {% if my_list|length > 3 %}
-        <p>Список из 3х или более элементов - {{ my_list }}</p>
-    {% elif my_list|length == 2 %}
-        <p>Список из 2х элементов - {{ my_list }}</p>
-    {% elif my_list == 1 %}
-        <p>Список из 1 элементного - {{ my_list }}</p>
-    {% else %}
-        <p>Пустой список {{ my_list }}</p>
-    {% endif %}
-
-    <h2>{{ description_zodiac|title }}</h2>
-    <h2>{{ description_zodiac|safe }}</h2>
-    <p>Число {{ my_integer|add:'100' }}</p>
-    <p>Число дробное {{ my_float }}</p>
-    <p>Списки {{ my_list }}</p>
-    <p>Списки фильтр first {{ my_list|first }}</p>
-    <p>Списки фильтр last{{ my_list|last }}</p>
-    <p>Кортеж {{ my_tuple }}</p>
-    <p>Словари {{ my_dictionary }}, ключ - {{ my_dictionary.name }}</p>
-    <p>Экземпляр Класса {{ my_class }}
-{#        {{ my_class.age }}#}
-    </p>
-    <p>default фильтр если пустой покажет ---->{{ value|default:"QWERTY" }}</p>
-    <p>default фильтр если не пустой покажет ---->{{ value1|default:"QWERTY" }}</p>
-</body>
-</html>
+{% endblock %}

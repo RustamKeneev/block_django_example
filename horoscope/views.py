@@ -1,8 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
-from dataclasses import dataclass
-from django.template.loader import render_to_string
 
 zodiac_dictionary = {
     'leo': 'Знак задиака лев',

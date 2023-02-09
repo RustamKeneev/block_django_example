@@ -28,7 +28,6 @@ types = {
 
 def index(request):
     zodiacs = list(zodiac_dictionary)
-    # f"<li><a href='{redirect_path}'>{sign.title()}</a></li>"
     context = {
         'zodiacs': zodiacs,
         'zodiac_dictionary': zodiac_dictionary,
@@ -38,9 +37,12 @@ def index(request):
 
 def get_info_about_sign_zodiac(request, sign_zodiac: str):
     description = zodiac_dictionary.get(sign_zodiac)
+    zodiacs = list(zodiac_dictionary)
     data = {
         'description_zodiac': description,
         'sign_zodiac': sign_zodiac,
+        'sign_name': description.split()[0],
+        'zodiacs': zodiacs,
     }
     return render(request, 'horoscope/info_zodiac.html', context=data)
 

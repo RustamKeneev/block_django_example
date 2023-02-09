@@ -8,8 +8,8 @@
 {% endblock %}
 
 {% block content %}
-    {% include 'includes/navbar.html' only %}
-    <h2>Content from info_zodiac.html</h2>
+    {% include 'includes/navbar.html' %}
+    <h1>{{ sign_name }}</h1>
     {% if description_zodiac is None %}
         <h2>Неправильный знак задиака - {{ sign_zodiac|upper }}</h2>
     {% else %}

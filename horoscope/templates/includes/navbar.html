@@ -1,7 +1,7 @@
 <nav>
-    <a href="{% url 'horoscope_index' %}">Главная</a> |
+    <a href="{% url 'horoscope_index' %}">Главная</a>
     <a href="https://learnbatta.com/blog/django-custom-path-converters-17/">Источник</a>
     {% for item in zodiacs %}
-        | <a href="{% url 'horoscope-name' sign_zodiac=item %}">{{ item|title }}</a>
+         <a href="{% url 'horoscope-name' sign_zodiac=item %}">{{ item|title }}</a>
     {% endfor %}
 </nav>
